@@ -23,6 +23,10 @@ int getpid(void);
 char* sbrk(int);
 int sleep(int);
 int uptime(void);
+int ramtin(void);
+int getHelloWorld(void);
+int getProcCount(void);
+int getReadCount(void);
 
 // ulib.c
 int stat(const char*, struct stat*);

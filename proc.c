@@ -532,3 +532,47 @@ procdump(void)
     cprintf("\n");
   }
 }
+
+int
+getHelloWorld(void)
+{
+  cprintf("Hello World\n");
+  return 0;
+}
+
+int
+getProcCount(void)
+{
+  static char *states[] = {
+  [UNUSED]    "unused",
+  [EMBRYO]    "embryo",
+  [SLEEPING]  "sleep ",
+  [RUNNABLE]  "runble",
+  [RUNNING]   "run   ",
+  [ZOMBIE]    "zombie"
+  };
+  int procCount = 0;
+  struct proc *p;
+
+  cprintf("alive processes states:\n");
+  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+    if(p->state != UNUSED){
+      procCount ++;
+      cprintf("process %d : %s\n", procCount, states[p->state]);
+    }
+  }
+  cprintf("so number of alive processes is: %d\n", procCount);
+  return 0;
+}
+
+int 
+getReadCount(void)
+{
+  int numread = 0;
+  struct proc *p;
+  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+    numread += p->readid;
+  }
+  cprintf("number of read calls: %d\n", numread);
+  return 0;
+}

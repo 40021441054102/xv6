@@ -89,3 +89,29 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+int 
+sys_ramtin(void) 
+{
+
+return 37;
+} 
+
+
+int 
+sys_getHelloWorld(void)
+{
+  return getHelloWorld();
+}
+
+int 
+sys_getProcCount(void)
+{
+  return getProcCount();
+}
+
+int 
+sys_getReadCount(void)
+{
+  return getReadCount();
+}
